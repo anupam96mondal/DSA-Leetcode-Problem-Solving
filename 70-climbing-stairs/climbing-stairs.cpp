@@ -5,20 +5,20 @@ public:
         if(n == 1 || n==0){
             return 1;
         }
-        // vector<int> dp(n+1);
-        // dp[0]=dp[1]=1;
-        // for(int i =2;i<=n;i++){
-        //     dp[i]=dp[i-1]+dp[i-2];
-        // }
-        // return dp[n];
-
-        //space oprtimization
-        int prev =1,curr=1;
-        for(int i=2;i<=n;i++){
-            int temp = curr;
-            curr= curr+prev;
-            prev=temp;
+        vector<int> dp(n+1);  // Time is less use dp table
+        dp[0]=dp[1]=1;
+        for(int i =2;i<=n;i++){
+            dp[i]=dp[i-1]+dp[i-2];
         }
-        return curr;
+        return dp[n];
+
+        //space oprtimization but time is more
+        // int prev =1,curr=1;
+        // for(int i=2;i<=n;i++){
+        //     int temp = curr;
+        //     curr= curr+prev;
+        //     prev=temp;
+        // }
+        // return curr;
     }
 };
